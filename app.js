@@ -76,8 +76,8 @@ function infuantioxidante(dias, veces) {
 
   function compra(preciogramo, receta) {
     return preciogramo * receta * 7000;
-
   }
+
 
 /* DATOS PARA ARMAR RECETA */
 
@@ -127,7 +127,7 @@ let envio = prompt("confirmanos tu direccion con ciudad y pais a donde deseas re
 
 switch (option2) {
     case "1":
-        console.log("COMPRA REALIZADA, el envio llegara en maximo 5 dias habiles, recuerda que debes cancelar $" + precio + "una vez llegue a tu domicilio en " + envio);
+        console.log("COMPRA REALIZADA, el envio llegara en maximo 5 dias habiles, recuerda que debes cancelar $" + precio + " una vez llegue a tu domicilio en " + envio);
         break;
     case "2":
         console.log("COMPRA CANCELADA, gracias por usar nuestro servicio");
