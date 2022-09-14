@@ -75,6 +75,7 @@ function infuantioxidante(dias, veces) {
     return preciogramo * receta * 7000;
   }
 
+
 /* PRODUCTOS */
 
 function Producto(nombre, precio) {
@@ -123,6 +124,11 @@ switch (option) {
         console.log("hola, calculamos que necesitaras " + receta + "gramos");
         console.log("el valor con envio es de $" + precio);
         carrito.push({ productocomprado: producto1.nombre, valor: precio });
+        let contenedor1 = document.createElement("div");
+        contenedor1.innerHTML = `<h3>Calculado receta de ${producto1.nombre} para ${dias} dias, con ${veces} veces al dia</h3>
+        <p>hola, calculamos que necesitaras ${receta} gramos</p>
+        <p>el valor con envio es de $${precio}</p>`;
+        document.body.appendChild(contenedor1);
         break;
     case "2":
         receta = infudigestiva(dias, veces)
@@ -130,7 +136,12 @@ switch (option) {
         console.log("Calculado receta de " + producto2.nombre + " para " + dias + " dias, con " + veces + " veces al dia");
         console.log("hola, calculamos que necesitaras " + receta + "gramos");
         console.log("el valor con envio es de $" + precio);
-        carrito.push({ productocomprado: producto1.nombre, valor: precio });
+        carrito.push({ productocomprado: producto2.nombre, valor: precio });
+        let contenedor2 = document.createElement("div");
+        contenedor2.innerHTML = `<h3>Calculado receta de ${producto2.nombre} para ${dias} dias, con ${veces} veces al dia</h3>
+        <p>hola, calculamos que necesitaras ${receta} gramos</p>
+        <p>el valor con envio es de $${precio}</p>`;
+        document.body.appendChild(contenedor2);
         break;
     case "3":
         receta = infuantioxidante(dias, veces)
@@ -138,7 +149,12 @@ switch (option) {
         console.log("Calculado receta de " + producto3.nombre + " para " + dias + " dias, con " + veces + " veces al dia");
         console.log("hola, calculamos que necesitaras " + receta + "gramos");
         console.log("el valor con envio es de $" + precio);
-        carrito.push({ productocomprado: producto1.nombre, valor: precio });
+        carrito.push({ productocomprado: producto3.nombre, valor: precio });
+        let contenedor3 = document.createElement("div");
+        contenedor3.innerHTML = `<h3>Calculado receta de ${producto3.nombre} para ${dias} dias, con ${veces} veces al dia</h3>
+        <p>hola, calculamos que necesitaras ${receta} gramos</p>
+        <p>el valor con envio es de $${precio}</p>`;
+        document.body.appendChild(contenedor3);
         break;
 
     default:
@@ -165,15 +181,27 @@ switch (option2) {
     case "1":
         let envio = prompt("confirmanos tu direccion con ciudad y pais a donde deseas recibir el producto");
         console.log("COMPRA REALIZADA, el envio llegara en maximo 5 dias habiles, recuerda que debes cancelar $" + precio + " una vez llegue a tu domicilio en " + envio);
+        for (itemcarrito of carrito) {
+          let contenedor = document.createElement("div");
+          contenedor.innerHTML = `<h3>Producto 1: ${itemcarrito.productocomprado}</h3>
+          <p>Precio: $${itemcarrito.valor}</p>
+          <p>COMPRA REALIZADA, el envio llegara en maximo 5 dias habiles, recuerda que debes cancelar $${precio} una vez llegue a tu domicilio en ${envio}</p>
+          `;
+          document.body.appendChild(contenedor);
+        }        
         break;
     case "2":
         console.log("COMPRA CANCELADA, gracias por usar nuestro servicio");
         carrito.splice(0);
         console.log("contenido del carrito de compras: ");
         console.log(carrito);
+          let contenedor4 = document.createElement("div");
+          contenedor4.innerHTML = `<h3>COMPRA CANCELADA</h3>`;
+          document.body.appendChild(contenedor4);
         break;
     default:
         console.log("no tenemos datos");
         break;
 }
+
 
